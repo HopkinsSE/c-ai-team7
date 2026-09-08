@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+body{
+    background-image: url("court2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Inter', Arial, sans-serif, sans-serif;
+    margin: 0px
+}
+
+H2 {
+    font-family: 'Oswald', Arial, sans-serif;
+    font-weight: 650;
+    color: #001238
+}
+
+.nav-link{
+    display:inline-block;
+    margin: 8px 12px;
+    padding: 10px;
+    width: 200px;
+    border: 2px solid #ffffff;
+    border-radius: 6px;
+    background-color: #c56d02;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-link:hover{background-color: #0bc1ef}
+
+/*----- Page 1 Styles */
+.page1-wrap .page-title{
+    color: #ffffff
+}
+
+.page1-wrap .page-subtitle{
+    color: #ffffff
+}
+
+/*----- Page 2 Styles */
+.page1-wrap{
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.page-title{
+    font-size: 28px;
+    color: #001238;
+    margin-top: 6px;
+}
+
+.page-subtitle{
+    font-family: "Inter", Arial, sans-serif;
+    color: #001238;
+    margin-top: 16px
+}

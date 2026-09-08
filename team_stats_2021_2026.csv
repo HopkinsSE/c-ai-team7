@@ -1,0 +1,151 @@
+SEASON,TEAM_ID,TEAM_NAME,GP,W,L,WIN_PCT,NET_RATING,OFF_RATING,DEF_RATING,PACE,EFG_PCT,TEAM_ABBREVIATION,CONFERENCE,PRIMARY_COLOR,LOGO_URL
+2021-22,1610612756,Phoenix Suns,82,64,18,0.78,7.5,114.2,106.8,100.26,0.549,PHX,West,#1D1160,https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg
+2021-22,1610612738,Boston Celtics,82,51,31,0.622,7.4,113.6,106.2,97.26,0.542,BOS,East,#007A33,https://cdn.nba.com/logos/nba/1610612738/global/L/logo.svg
+2021-22,1610612762,Utah Jazz,82,49,33,0.598,6.2,116.2,110.0,97.5,0.555,UTA,West,#002B5C,https://cdn.nba.com/logos/nba/1610612762/global/L/logo.svg
+2021-22,1610612744,Golden State Warriors,82,53,29,0.646,5.5,112.1,106.6,98.74,0.552,GSW,West,#1D428A,https://cdn.nba.com/logos/nba/1610612744/global/L/logo.svg
+2021-22,1610612763,Memphis Grizzlies,82,56,26,0.683,5.3,114.3,108.9,100.52,0.522,MEM,West,#5D76A9,https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg
+2021-22,1610612748,Miami Heat,82,53,29,0.646,4.5,113.0,108.4,96.53,0.547,MIA,East,#98002E,https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg
+2021-22,1610612742,Dallas Mavericks,82,52,30,0.634,3.5,112.5,109.1,95.64,0.538,DAL,West,#00538C,https://cdn.nba.com/logos/nba/1610612742/global/L/logo.svg
+2021-22,1610612749,Milwaukee Bucks,82,51,31,0.622,3.2,114.3,111.1,100.59,0.546,MIL,East,#00471B,https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg
+2021-22,1610612755,Philadelphia 76ers,82,51,31,0.622,2.8,113.0,110.2,96.71,0.534,PHI,East,#006BB6,https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg
+2021-22,1610612750,Minnesota Timberwolves,82,46,36,0.561,2.7,113.8,111.0,101.47,0.539,MIN,West,#0C2340,https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg
+2021-22,1610612743,Denver Nuggets,82,48,34,0.585,2.3,113.8,111.5,98.41,0.556,DEN,West,#0E2240,https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg
+2021-22,1610612761,Toronto Raptors,82,48,34,0.585,2.2,112.1,109.9,96.63,0.51,TOR,East,#CE1141,https://cdn.nba.com/logos/nba/1610612761/global/L/logo.svg
+2021-22,1610612739,Cleveland Cavaliers,82,44,38,0.537,2.1,111.0,108.9,96.83,0.538,CLE,East,#860038,https://cdn.nba.com/logos/nba/1610612739/global/L/logo.svg
+2021-22,1610612737,Atlanta Hawks,82,43,39,0.524,1.6,115.4,113.7,98.67,0.543,ATL,East,#E03A3E,https://cdn.nba.com/logos/nba/1610612737/global/L/logo.svg
+2021-22,1610612751,Brooklyn Nets,82,44,38,0.537,0.9,113.2,112.3,99.4,0.54,BKN,East,#000000,https://cdn.nba.com/logos/nba/1610612751/global/L/logo.svg
+2021-22,1610612766,Charlotte Hornets,82,43,39,0.524,0.5,113.6,113.1,100.52,0.544,CHA,East,#1D1160,https://cdn.nba.com/logos/nba/1610612766/global/L/logo.svg
+2021-22,1610612759,San Antonio Spurs,82,34,48,0.415,0.2,111.9,111.7,100.51,0.527,SAS,West,#C4CED4,https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg
+2021-22,1610612746,LA Clippers,82,42,40,0.512,0.0,109.5,109.5,98.51,0.531,LAC,West,#C8102E,https://cdn.nba.com/logos/nba/1610612746/global/L/logo.svg
+2021-22,1610612752,New York Knicks,82,37,45,0.451,-0.4,109.7,110.2,96.42,0.513,NYK,East,#006BB6,https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg
+2021-22,1610612741,Chicago Bulls,82,46,36,0.561,-0.5,112.7,113.2,98.76,0.541,CHI,East,#CE1141,https://cdn.nba.com/logos/nba/1610612741/global/L/logo.svg
+2021-22,1610612740,New Orleans Pelicans,82,36,46,0.439,-0.8,111.2,112.0,98.02,0.517,NOP,West,#0C2340,https://cdn.nba.com/logos/nba/1610612740/global/L/logo.svg
+2021-22,1610612747,Los Angeles Lakers,82,33,49,0.402,-2.9,110.0,112.8,100.47,0.537,LAL,West,#552583,https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg
+2021-22,1610612764,Washington Wizards,82,35,47,0.427,-3.4,110.2,113.6,97.8,0.532,WAS,East,#002B5C,https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg
+2021-22,1610612754,Indiana Pacers,82,25,57,0.305,-3.6,111.9,115.5,98.55,0.531,IND,East,#002D62,https://cdn.nba.com/logos/nba/1610612754/global/L/logo.svg
+2021-22,1610612758,Sacramento Kings,82,30,52,0.366,-5.2,109.6,114.8,100.1,0.525,SAC,West,#5A2D81,https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg
+2021-22,1610612765,Detroit Pistons,82,23,59,0.28,-7.7,105.6,113.3,98.81,0.494,DET,East,#C8102E,https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg
+2021-22,1610612760,Oklahoma City Thunder,82,24,58,0.293,-8.0,103.8,111.7,99.39,0.497,OKC,West,#007AC1,https://cdn.nba.com/logos/nba/1610612760/global/L/logo.svg
+2021-22,1610612753,Orlando Magic,82,22,60,0.268,-8.1,103.9,112.1,99.71,0.503,ORL,East,#0077C0,https://cdn.nba.com/logos/nba/1610612753/global/L/logo.svg
+2021-22,1610612745,Houston Rockets,82,20,62,0.244,-8.3,108.1,116.4,101.16,0.534,HOU,West,#CE1141,https://cdn.nba.com/logos/nba/1610612745/global/L/logo.svg
+2021-22,1610612757,Portland Trail Blazers,82,27,55,0.329,-9.1,107.3,116.3,98.74,0.515,POR,West,#E03A3E,https://cdn.nba.com/logos/nba/1610612757/global/L/logo.svg
+2022-23,1610612738,Boston Celtics,82,57,25,0.695,6.7,117.3,110.6,99.15,0.566,BOS,East,#007A33,https://cdn.nba.com/logos/nba/1610612738/global/L/logo.svg
+2022-23,1610612739,Cleveland Cavaliers,82,51,31,0.622,5.6,115.5,109.9,96.27,0.556,CLE,East,#860038,https://cdn.nba.com/logos/nba/1610612739/global/L/logo.svg
+2022-23,1610612755,Philadelphia 76ers,82,54,28,0.659,4.4,117.0,112.7,97.44,0.563,PHI,East,#006BB6,https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg
+2022-23,1610612763,Memphis Grizzlies,82,51,31,0.622,4.0,114.7,110.7,101.5,0.54,MEM,West,#5D76A9,https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg
+2022-23,1610612749,Milwaukee Bucks,82,58,24,0.707,3.4,114.3,110.9,101.45,0.555,MIL,East,#00471B,https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg
+2022-23,1610612743,Denver Nuggets,82,53,29,0.646,3.3,116.8,113.5,98.74,0.573,DEN,West,#0E2240,https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg
+2022-23,1610612752,New York Knicks,82,47,35,0.573,2.8,117.0,114.2,97.75,0.541,NYK,East,#006BB6,https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg
+2022-23,1610612758,Sacramento Kings,82,48,34,0.585,2.6,118.6,116.0,100.99,0.572,SAC,West,#5A2D81,https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg
+2022-23,1610612756,Phoenix Suns,82,45,37,0.549,2.2,114.5,112.3,98.83,0.535,PHX,West,#1D1160,https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg
+2022-23,1610612740,New Orleans Pelicans,82,42,40,0.512,1.9,113.8,112.0,99.58,0.543,NOP,West,#0C2340,https://cdn.nba.com/logos/nba/1610612740/global/L/logo.svg
+2022-23,1610612744,Golden State Warriors,82,44,38,0.537,1.7,115.1,113.4,102.54,0.571,GSW,West,#1D428A,https://cdn.nba.com/logos/nba/1610612744/global/L/logo.svg
+2022-23,1610612761,Toronto Raptors,82,41,41,0.5,1.5,114.6,113.1,97.85,0.517,TOR,East,#CE1141,https://cdn.nba.com/logos/nba/1610612761/global/L/logo.svg
+2022-23,1610612741,Chicago Bulls,82,40,42,0.488,1.3,112.8,111.5,99.18,0.55,CHI,East,#CE1141,https://cdn.nba.com/logos/nba/1610612741/global/L/logo.svg
+2022-23,1610612751,Brooklyn Nets,82,45,37,0.549,1.1,114.6,113.5,98.77,0.562,BKN,East,#000000,https://cdn.nba.com/logos/nba/1610612751/global/L/logo.svg
+2022-23,1610612760,Oklahoma City Thunder,82,40,42,0.488,1.0,114.2,113.2,101.94,0.531,OKC,West,#007AC1,https://cdn.nba.com/logos/nba/1610612760/global/L/logo.svg
+2022-23,1610612747,Los Angeles Lakers,82,43,39,0.524,0.7,113.9,113.2,101.92,0.542,LAL,West,#552583,https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg
+2022-23,1610612746,LA Clippers,82,44,38,0.537,0.5,114.0,113.6,98.84,0.551,LAC,West,#C8102E,https://cdn.nba.com/logos/nba/1610612746/global/L/logo.svg
+2022-23,1610612750,Minnesota Timberwolves,82,42,40,0.512,0.2,113.3,113.1,101.55,0.56,MIN,West,#0C2340,https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg
+2022-23,1610612737,Atlanta Hawks,82,41,41,0.5,0.1,115.5,115.4,101.56,0.541,ATL,East,#E03A3E,https://cdn.nba.com/logos/nba/1610612737/global/L/logo.svg
+2022-23,1610612742,Dallas Mavericks,82,38,44,0.463,-0.2,115.9,116.1,97.21,0.565,DAL,West,#00538C,https://cdn.nba.com/logos/nba/1610612742/global/L/logo.svg
+2022-23,1610612748,Miami Heat,82,44,38,0.537,-0.5,112.3,112.8,96.76,0.53,MIA,East,#98002E,https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg
+2022-23,1610612762,Utah Jazz,82,37,45,0.451,-0.7,115.3,116.0,101.02,0.547,UTA,West,#002B5C,https://cdn.nba.com/logos/nba/1610612762/global/L/logo.svg
+2022-23,1610612764,Washington Wizards,82,35,47,0.427,-1.2,113.7,114.9,99.16,0.55,WAS,East,#002B5C,https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg
+2022-23,1610612753,Orlando Magic,82,34,48,0.415,-2.3,111.3,113.7,99.66,0.532,ORL,East,#0077C0,https://cdn.nba.com/logos/nba/1610612753/global/L/logo.svg
+2022-23,1610612754,Indiana Pacers,82,35,47,0.427,-3.3,113.8,117.1,101.68,0.545,IND,East,#002D62,https://cdn.nba.com/logos/nba/1610612754/global/L/logo.svg
+2022-23,1610612757,Portland Trail Blazers,82,33,49,0.402,-4.0,114.0,118.0,99.25,0.549,POR,West,#E03A3E,https://cdn.nba.com/logos/nba/1610612757/global/L/logo.svg
+2022-23,1610612766,Charlotte Hornets,82,27,55,0.329,-6.3,108.4,114.7,101.47,0.516,CHA,East,#1D1160,https://cdn.nba.com/logos/nba/1610612766/global/L/logo.svg
+2022-23,1610612765,Detroit Pistons,82,17,65,0.207,-7.9,109.9,117.8,99.88,0.52,DET,East,#C8102E,https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg
+2022-23,1610612745,Houston Rockets,82,22,60,0.268,-8.1,110.5,118.6,99.74,0.516,HOU,West,#CE1141,https://cdn.nba.com/logos/nba/1610612745/global/L/logo.svg
+2022-23,1610612759,San Antonio Spurs,82,22,60,0.268,-9.9,109.7,119.6,102.07,0.525,SAS,West,#C4CED4,https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg
+2023-24,1610612738,Boston Celtics,82,64,18,0.78,11.7,122.2,110.6,97.98,0.578,BOS,East,#007A33,https://cdn.nba.com/logos/nba/1610612738/global/L/logo.svg
+2023-24,1610612760,Oklahoma City Thunder,82,57,25,0.695,7.3,118.3,111.0,100.85,0.573,OKC,West,#007AC1,https://cdn.nba.com/logos/nba/1610612760/global/L/logo.svg
+2023-24,1610612750,Minnesota Timberwolves,82,56,26,0.683,6.3,114.6,108.4,97.79,0.559,MIN,West,#0C2340,https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg
+2023-24,1610612743,Denver Nuggets,82,57,25,0.695,5.5,117.8,112.3,97.43,0.562,DEN,West,#0E2240,https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg
+2023-24,1610612752,New York Knicks,82,50,32,0.61,4.9,117.3,112.4,95.96,0.54,NYK,East,#006BB6,https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg
+2023-24,1610612740,New Orleans Pelicans,82,49,33,0.598,4.6,116.5,111.9,98.7,0.558,NOP,West,#0C2340,https://cdn.nba.com/logos/nba/1610612740/global/L/logo.svg
+2023-24,1610612746,LA Clippers,82,51,31,0.622,3.4,117.9,114.6,97.93,0.561,LAC,West,#C8102E,https://cdn.nba.com/logos/nba/1610612746/global/L/logo.svg
+2023-24,1610612755,Philadelphia 76ers,82,47,35,0.573,3.1,116.2,113.0,98.17,0.532,PHI,East,#006BB6,https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg
+2023-24,1610612756,Phoenix Suns,82,49,33,0.598,3.1,116.8,113.7,99.0,0.565,PHX,West,#1D1160,https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg
+2023-24,1610612754,Indiana Pacers,82,47,35,0.573,2.9,120.5,117.6,102.16,0.578,IND,East,#002D62,https://cdn.nba.com/logos/nba/1610612754/global/L/logo.svg
+2023-24,1610612749,Milwaukee Bucks,82,49,33,0.598,2.6,117.6,115.0,100.51,0.568,MIL,East,#00471B,https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg
+2023-24,1610612739,Cleveland Cavaliers,82,48,34,0.585,2.5,114.7,112.1,97.62,0.557,CLE,East,#860038,https://cdn.nba.com/logos/nba/1610612739/global/L/logo.svg
+2023-24,1610612744,Golden State Warriors,82,46,36,0.561,2.4,116.9,114.5,99.91,0.557,GSW,West,#1D428A,https://cdn.nba.com/logos/nba/1610612744/global/L/logo.svg
+2023-24,1610612753,Orlando Magic,82,47,35,0.573,2.2,112.9,110.8,97.37,0.541,ORL,East,#0077C0,https://cdn.nba.com/logos/nba/1610612753/global/L/logo.svg
+2023-24,1610612742,Dallas Mavericks,82,50,32,0.61,2.1,117.0,114.9,100.6,0.562,DAL,West,#00538C,https://cdn.nba.com/logos/nba/1610612742/global/L/logo.svg
+2023-24,1610612748,Miami Heat,82,46,36,0.561,1.8,113.3,111.5,96.88,0.538,MIA,East,#98002E,https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg
+2023-24,1610612758,Sacramento Kings,82,46,36,0.561,1.8,116.2,114.4,99.46,0.556,SAC,West,#5A2D81,https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg
+2023-24,1610612745,Houston Rockets,82,41,41,0.5,0.9,113.7,112.8,99.59,0.529,HOU,West,#CE1141,https://cdn.nba.com/logos/nba/1610612745/global/L/logo.svg
+2023-24,1610612747,Los Angeles Lakers,82,47,35,0.573,0.6,115.4,114.8,101.38,0.566,LAL,West,#552583,https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg
+2023-24,1610612741,Chicago Bulls,82,39,43,0.476,-1.7,114.0,115.7,96.94,0.534,CHI,East,#CE1141,https://cdn.nba.com/logos/nba/1610612741/global/L/logo.svg
+2023-24,1610612737,Atlanta Hawks,82,36,46,0.439,-2.0,116.4,118.4,100.84,0.539,ATL,East,#E03A3E,https://cdn.nba.com/logos/nba/1610612737/global/L/logo.svg
+2023-24,1610612751,Brooklyn Nets,82,32,50,0.39,-2.9,112.4,115.4,97.56,0.531,BKN,East,#000000,https://cdn.nba.com/logos/nba/1610612751/global/L/logo.svg
+2023-24,1610612762,Utah Jazz,82,31,51,0.378,-5.1,114.5,119.6,100.26,0.539,UTA,West,#002B5C,https://cdn.nba.com/logos/nba/1610612762/global/L/logo.svg
+2023-24,1610612761,Toronto Raptors,82,25,57,0.305,-6.3,111.8,118.1,99.91,0.535,TOR,East,#CE1141,https://cdn.nba.com/logos/nba/1610612761/global/L/logo.svg
+2023-24,1610612759,San Antonio Spurs,82,22,60,0.268,-6.4,109.3,115.6,101.8,0.532,SAS,West,#C4CED4,https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg
+2023-24,1610612763,Memphis Grizzlies,82,27,55,0.329,-6.9,106.8,113.7,98.68,0.509,MEM,West,#5D76A9,https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg
+2023-24,1610612764,Washington Wizards,82,15,67,0.183,-8.7,110.2,118.9,103.07,0.538,WAS,East,#002B5C,https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg
+2023-24,1610612765,Detroit Pistons,82,14,68,0.171,-9.0,109.0,118.0,100.45,0.526,DET,East,#C8102E,https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg
+2023-24,1610612757,Portland Trail Blazers,82,21,61,0.256,-9.0,107.6,116.6,97.88,0.503,POR,West,#E03A3E,https://cdn.nba.com/logos/nba/1610612757/global/L/logo.svg
+2023-24,1610612766,Charlotte Hornets,82,21,61,0.256,-10.6,108.6,119.2,97.81,0.529,CHA,East,#1D1160,https://cdn.nba.com/logos/nba/1610612766/global/L/logo.svg
+2024-25,1610612760,Oklahoma City Thunder,82,68,14,0.829,12.7,119.2,106.6,100.9,0.56,OKC,West,#007AC1,https://cdn.nba.com/logos/nba/1610612760/global/L/logo.svg
+2024-25,1610612738,Boston Celtics,82,61,21,0.744,9.4,119.5,110.1,96.59,0.561,BOS,East,#007A33,https://cdn.nba.com/logos/nba/1610612738/global/L/logo.svg
+2024-25,1610612739,Cleveland Cavaliers,82,64,18,0.78,9.2,121.0,111.8,100.31,0.578,CLE,East,#860038,https://cdn.nba.com/logos/nba/1610612739/global/L/logo.svg
+2024-25,1610612750,Minnesota Timberwolves,82,49,33,0.598,5.0,115.7,110.8,97.95,0.554,MIN,West,#0C2340,https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg
+2024-25,1610612746,LA Clippers,82,50,32,0.61,4.9,114.3,109.4,98.24,0.554,LAC,West,#C8102E,https://cdn.nba.com/logos/nba/1610612746/global/L/logo.svg
+2024-25,1610612763,Memphis Grizzlies,82,48,34,0.585,4.7,117.2,112.6,103.69,0.554,MEM,West,#5D76A9,https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg
+2024-25,1610612745,Houston Rockets,82,52,30,0.634,4.6,114.9,110.3,99.03,0.523,HOU,West,#CE1141,https://cdn.nba.com/logos/nba/1610612745/global/L/logo.svg
+2024-25,1610612752,New York Knicks,82,51,31,0.622,4.0,117.3,113.3,97.64,0.556,NYK,East,#006BB6,https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg
+2024-25,1610612743,Denver Nuggets,82,50,32,0.61,3.8,118.9,115.1,100.67,0.573,DEN,West,#0E2240,https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg
+2024-25,1610612744,Golden State Warriors,82,48,34,0.585,3.2,114.2,111.0,99.37,0.536,GSW,West,#1D428A,https://cdn.nba.com/logos/nba/1610612744/global/L/logo.svg
+2024-25,1610612749,Milwaukee Bucks,82,48,34,0.585,2.4,115.1,112.7,99.92,0.568,MIL,East,#00471B,https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg
+2024-25,1610612765,Detroit Pistons,82,44,38,0.537,2.1,114.6,112.5,100.27,0.547,DET,East,#C8102E,https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg
+2024-25,1610612754,Indiana Pacers,82,50,32,0.61,2.1,115.4,113.3,100.76,0.562,IND,East,#002D62,https://cdn.nba.com/logos/nba/1610612754/global/L/logo.svg
+2024-25,1610612747,Los Angeles Lakers,82,50,32,0.61,1.2,115.0,113.8,98.34,0.557,LAL,West,#552583,https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg
+2024-25,1610612758,Sacramento Kings,82,40,42,0.488,0.6,115.9,115.3,98.91,0.548,SAC,West,#5A2D81,https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg
+2024-25,1610612748,Miami Heat,82,37,45,0.451,0.4,112.4,112.0,97.08,0.544,MIA,East,#98002E,https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg
+2024-25,1610612753,Orlando Magic,82,41,41,0.5,-0.2,108.9,109.1,96.51,0.51,ORL,East,#0077C0,https://cdn.nba.com/logos/nba/1610612753/global/L/logo.svg
+2024-25,1610612737,Atlanta Hawks,82,40,42,0.488,-1.1,113.7,114.8,103.41,0.546,ATL,East,#E03A3E,https://cdn.nba.com/logos/nba/1610612737/global/L/logo.svg
+2024-25,1610612742,Dallas Mavericks,82,39,43,0.476,-1.3,113.7,115.0,100.15,0.549,DAL,West,#00538C,https://cdn.nba.com/logos/nba/1610612742/global/L/logo.svg
+2024-25,1610612741,Chicago Bulls,82,39,43,0.476,-1.6,113.2,114.8,103.61,0.553,CHI,East,#CE1141,https://cdn.nba.com/logos/nba/1610612741/global/L/logo.svg
+2024-25,1610612757,Portland Trail Blazers,82,36,46,0.439,-2.7,111.0,113.7,99.51,0.521,POR,West,#E03A3E,https://cdn.nba.com/logos/nba/1610612757/global/L/logo.svg
+2024-25,1610612759,San Antonio Spurs,82,34,48,0.415,-2.8,113.5,116.3,100.08,0.544,SAS,West,#C4CED4,https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg
+2024-25,1610612756,Phoenix Suns,82,36,46,0.439,-3.0,114.7,117.7,98.31,0.561,PHX,West,#1D1160,https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg
+2024-25,1610612761,Toronto Raptors,82,30,52,0.366,-4.1,109.6,113.6,100.62,0.522,TOR,East,#CE1141,https://cdn.nba.com/logos/nba/1610612761/global/L/logo.svg
+2024-25,1610612755,Philadelphia 76ers,82,24,58,0.293,-6.3,111.0,117.3,98.13,0.527,PHI,East,#006BB6,https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg
+2024-25,1610612751,Brooklyn Nets,82,26,56,0.317,-7.3,108.1,115.4,96.73,0.516,BKN,East,#000000,https://cdn.nba.com/logos/nba/1610612751/global/L/logo.svg
+2024-25,1610612766,Charlotte Hornets,82,19,63,0.232,-9.1,106.7,115.7,98.22,0.503,CHA,East,#1D1160,https://cdn.nba.com/logos/nba/1610612766/global/L/logo.svg
+2024-25,1610612762,Utah Jazz,82,17,65,0.207,-9.2,110.2,119.4,100.85,0.533,UTA,West,#002B5C,https://cdn.nba.com/logos/nba/1610612762/global/L/logo.svg
+2024-25,1610612740,New Orleans Pelicans,82,21,61,0.256,-9.4,109.7,119.1,99.77,0.519,NOP,West,#0C2340,https://cdn.nba.com/logos/nba/1610612740/global/L/logo.svg
+2024-25,1610612764,Washington Wizards,82,18,64,0.22,-12.2,105.8,118.0,101.82,0.512,WAS,East,#002B5C,https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg
+2025-26,1610612760,Oklahoma City Thunder,82,64,18,0.78,11.1,117.6,106.5,100.37,0.561,OKC,West,#007AC1,https://cdn.nba.com/logos/nba/1610612760/global/L/logo.svg
+2025-26,1610612765,Detroit Pistons,82,60,22,0.732,8.4,117.3,108.9,99.88,0.546,DET,East,#C8102E,https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg
+2025-26,1610612759,San Antonio Spurs,82,62,20,0.756,8.4,118.7,110.4,100.72,0.559,SAS,West,#C4CED4,https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg
+2025-26,1610612738,Boston Celtics,82,56,26,0.683,8.3,120.0,111.7,95.58,0.553,BOS,East,#007A33,https://cdn.nba.com/logos/nba/1610612738/global/L/logo.svg
+2025-26,1610612752,New York Knicks,82,53,29,0.646,6.4,118.7,112.3,97.71,0.557,NYK,East,#006BB6,https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg
+2025-26,1610612745,Houston Rockets,82,52,30,0.634,5.4,117.5,112.1,96.98,0.542,HOU,West,#CE1141,https://cdn.nba.com/logos/nba/1610612745/global/L/logo.svg
+2025-26,1610612743,Denver Nuggets,82,54,28,0.659,5.2,121.2,116.0,99.49,0.577,DEN,West,#0E2240,https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg
+2025-26,1610612766,Charlotte Hornets,82,44,38,0.537,4.9,118.4,113.5,97.59,0.552,CHA,East,#1D1160,https://cdn.nba.com/logos/nba/1610612766/global/L/logo.svg
+2025-26,1610612739,Cleveland Cavaliers,82,52,30,0.634,4.1,118.3,114.1,100.7,0.561,CLE,East,#860038,https://cdn.nba.com/logos/nba/1610612739/global/L/logo.svg
+2025-26,1610612750,Minnesota Timberwolves,82,49,33,0.598,3.1,115.6,112.5,101.5,0.559,MIN,West,#0C2340,https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg
+2025-26,1610612761,Toronto Raptors,82,46,36,0.561,2.9,115.0,112.1,99.22,0.546,TOR,East,#CE1141,https://cdn.nba.com/logos/nba/1610612761/global/L/logo.svg
+2025-26,1610612737,Atlanta Hawks,82,46,36,0.561,2.2,115.0,112.9,102.5,0.554,ATL,East,#E03A3E,https://cdn.nba.com/logos/nba/1610612737/global/L/logo.svg
+2025-26,1610612748,Miami Heat,82,43,39,0.524,2.1,115.8,113.6,104.22,0.542,MIA,East,#98002E,https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg
+2025-26,1610612747,Los Angeles Lakers,82,53,29,0.646,1.5,117.0,115.5,99.22,0.573,LAL,West,#552583,https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg
+2025-26,1610612756,Phoenix Suns,82,45,37,0.549,1.4,114.2,112.9,98.14,0.537,PHX,West,#1D1160,https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg
+2025-26,1610612746,LA Clippers,82,42,40,0.512,1.1,116.3,115.2,97.29,0.559,LAC,West,#C8102E,https://cdn.nba.com/logos/nba/1610612746/global/L/logo.svg
+2025-26,1610612753,Orlando Magic,82,45,37,0.549,0.6,114.2,113.6,100.56,0.531,ORL,East,#0077C0,https://cdn.nba.com/logos/nba/1610612753/global/L/logo.svg
+2025-26,1610612755,Philadelphia 76ers,82,45,37,0.549,-0.1,114.3,114.4,100.39,0.53,PHI,East,#006BB6,https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg
+2025-26,1610612757,Portland Trail Blazers,82,42,40,0.512,-0.4,113.1,113.5,101.63,0.534,POR,West,#E03A3E,https://cdn.nba.com/logos/nba/1610612757/global/L/logo.svg
+2025-26,1610612744,Golden State Warriors,82,37,45,0.451,-0.5,113.8,114.4,100.05,0.549,GSW,West,#1D428A,https://cdn.nba.com/logos/nba/1610612744/global/L/logo.svg
+2025-26,1610612740,New Orleans Pelicans,82,26,56,0.317,-4.4,113.3,117.6,101.37,0.527,NOP,West,#0C2340,https://cdn.nba.com/logos/nba/1610612740/global/L/logo.svg
+2025-26,1610612742,Dallas Mavericks,82,26,56,0.317,-5.2,110.3,115.5,102.62,0.527,DAL,West,#00538C,https://cdn.nba.com/logos/nba/1610612742/global/L/logo.svg
+2025-26,1610612741,Chicago Bulls,82,31,51,0.378,-5.3,112.1,117.4,103.22,0.547,CHI,East,#CE1141,https://cdn.nba.com/logos/nba/1610612741/global/L/logo.svg
+2025-26,1610612763,Memphis Grizzlies,82,25,57,0.305,-6.0,112.4,118.4,101.69,0.533,MEM,West,#5D76A9,https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg
+2025-26,1610612749,Milwaukee Bucks,82,32,50,0.39,-6.1,112.2,118.3,98.33,0.565,MIL,East,#00471B,https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg
+2025-26,1610612754,Indiana Pacers,82,19,63,0.232,-7.8,110.1,117.9,101.78,0.533,IND,East,#002D62,https://cdn.nba.com/logos/nba/1610612754/global/L/logo.svg
+2025-26,1610612762,Utah Jazz,82,22,60,0.268,-8.2,112.7,120.8,103.54,0.536,UTA,West,#002B5C,https://cdn.nba.com/logos/nba/1610612762/global/L/logo.svg
+2025-26,1610612758,Sacramento Kings,82,22,60,0.268,-9.7,110.6,120.3,100.12,0.525,SAC,West,#5A2D81,https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg
+2025-26,1610612751,Brooklyn Nets,82,20,62,0.244,-10.0,108.2,118.2,97.6,0.52,BKN,East,#000000,https://cdn.nba.com/logos/nba/1610612751/global/L/logo.svg
+2025-26,1610612764,Washington Wizards,82,17,65,0.207,-11.8,109.7,121.5,102.49,0.535,WAS,East,#002B5C,https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg
