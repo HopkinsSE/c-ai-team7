@@ -1,6 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap');
 
-body{
+/*----- Dropdown menu: selected + hovered option text (scoped to dropdowns only) ----- */
+.dash-dropdown-options .dash-options-list-option.selected .dash-options-list-option-text span {
+    color: #0bc1ef !important;
+}
+
+.dash-dropdown-options .dash-options-list-option:hover .dash-options-list-option-text span {
+    color: #0bc1ef !important;
+}
+
+.dash-options-list-option:focus,
+.dash-options-list-option:focus-visible {
+    outline: none;
+}
+
+.dash-options-list-option:focus .dash-options-list-option-text span,
+.dash-options-list-option:focus-visible .dash-options-list-option-text span {
+    color: inherit;
+}
+
+.dash-options-list-option-text {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+::selection {
+    background-color: #0bc1ef;
+    color: #ffffff;
+}
+
+body {
     background-image: url("court2.jpg");
     background-size: cover;
     background-position: center;
@@ -16,8 +45,8 @@ H2 {
     color: #001238
 }
 
-.nav-link{
-    display:inline-block;
+.nav-link {
+    display: inline-block;
     margin: 8px 12px;
     padding: 10px;
     width: 200px;
@@ -26,34 +55,175 @@ H2 {
     background-color: #c56d02;
     color: #ffffff;
     text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
 }
 
-.nav-link:hover{background-color: #0bc1ef}
-
-/*----- Page 1 Styles */
-.page1-wrap .page-title{
-    color: #ffffff
+.nav-link:hover {
+    background-color: #0bc1ef
 }
 
-.page1-wrap .page-subtitle{
-    color: #ffffff
+/*----- Checkbox Styling (all pages) ----- */
+input[type="checkbox"] {
+    accent-color: #070096;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:hover,
+input[type="checkbox"]:focus,
+input[type="checkbox"]:focus-visible,
+input[type="checkbox"]:active {
+    outline: 2px solid #0bc1ef;
+    outline-offset: 2px;
+}
+
+label:hover span,
+label:active span {
+    color: #0bc1ef;
+}
+
+input[type="checkbox"]:checked+span {
+    color: inherit;
+    font-weight: 600;
+}
+
+/*----- Team checklist + dropdown option text color, ordered by state ----- */
+
+/* 1. Default: navy everywhere (checklists and dropdown menu) */
+.dash-options-list-option-text span {
+    color: #001238 !important;
+}
+
+/* 2. Clicked-then-released, not currently hovering: reset to navy so it doesn't stick blue/purple */
+.dash-options-list-option:focus .dash-options-list-option-text span,
+.dash-options-list-option:focus-visible .dash-options-list-option-text span,
+.dash-options-list-option:active .dash-options-list-option-text span {
+    color: #001238 !important;
+}
+
+/* 3. Actively hovering: light blue, wins over the focus/active reset above because it's declared later */
+.dash-options-list-option:hover .dash-options-list-option-text span {
+    color: #0bc1ef !important;
+}
+
+/* 4. Dropdown menu only: the current/selected option always stays light blue, even if focused */
+.dash-dropdown-options .dash-options-list-option.selected .dash-options-list-option-text span,
+.dash-dropdown-options .dash-options-list-option:focus .dash-options-list-option-text span,
+.dash-dropdown-options .dash-options-list-option:active .dash-options-list-option-text span {
+    color: #0bc1ef !important;
+}
+
+/*----- Checklist Grid Headers (conference + division, all pages) ----- */
+.conference-label span {
+    font-weight: 700;
+    font-size: 19px;
+    color: #001238;
+}
+
+.division-label span {
+    font-weight: 700;
+    font-size: 18px;
+    color: #001238;
 }
 
 /*----- Page 2 Styles */
-.page1-wrap{
+.page1-wrap {
     max-width: 840px;
     margin: 0 auto;
     padding: 16px;
 }
 
-.page-title{
+.page-title {
     font-size: 28px;
     color: #001238;
     margin-top: 6px;
 }
 
-.page-subtitle{
+.page-subtitle {
     font-family: "Inter", Arial, sans-serif;
     color: #001238;
     margin-top: 16px
+}
+
+/* ---- Global font sizing for consistency across pages ---- */
+body {
+    font-size: 17px;
+}
+
+h2 {
+    font-size: 30px !important;
+}
+
+.page-title {
+    font-size: 28px !important;
+}
+
+.page-subtitle,
+p {
+    font-size: 17px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #001238;
+}
+
+/* ---- Bordered frame for charts ---- */
+.chart-frame {
+    border: 4px solid #001238;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ---- Bordered frame for dropdowns ---- */
+.dropdown-frame {
+    border: 4px solid #001238;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 8px 10px;
+}
+
+/*----- Border for team-selector checklist boxes ----- */
+.checklist-frame {
+    border: 4px solid #001238;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+/* Make the dropdown's own text/menu bigger and consistent everywhere */
+.Select-control,
+.Select-value-label,
+.Select-placeholder,
+.Select-menu-outer,
+.VirtualizedSelectOption {
+    font-size: 16px !important;
+}
+
+.Select-control {
+    border: none !important;
+    /* frame provides the border instead */
+}
+
+/*----- Dropdown hover / selected color (all pages) ----- */
+.Select-option.is-focused,
+.VirtualizedSelectOption.is-focused {
+    background-color: #0bc1ef !important;
+    color: #ffffff !important;
+}
+
+.Select-value-label,
+.Select-value-label:link,
+.Select-value-label:visited,
+.Select--single>.Select-control .Select-value {
+    color: #0bc1ef !important;
+    text-decoration: none !important;
+}
+
+.is-selected {
+    background-color: #0bc1ef !important;
+    color: #ffffff !important;
 }

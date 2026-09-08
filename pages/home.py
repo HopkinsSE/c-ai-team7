@@ -18,8 +18,7 @@ df = pd.read_csv(CSV_PATH)
 TEAM_COL = "TEAM_ABBREVIATION" if "TEAM_ABBREVIATION" in df.columns else "TEAM_NAME"
 
 SEASONS = sorted(df["SEASON"].unique())
-SEASON_MARKS = {i: season for i, season in enumerate(SEASONS)}
-DEFAULT_SEASON_INDEX = len(SEASONS) - 1
+DEFAULT_SEASON = SEASONS[-1]
 
 box_style = {
     "margin": "25px auto",
@@ -34,26 +33,26 @@ box_style = {
 layout = html.Div([
     html.H2("NBA Team Power Rankings"),
     html.P("[INSERT DESCRIPTION ABOUT THE SPORTS API SALARY CAP SITUTATION (FROM TEAM TO TEAM) HERE]."),
-    html.Div([
-        html.Label("Season", htmlFor="season-slider"),
-        dcc.Slider(
-            id="season-slider",
-            min=0,
-            max=len(SEASONS) - 1,
-            step=1,
-            value=DEFAULT_SEASON_INDEX,
-            marks=SEASON_MARKS,
+        html.Div([
+                html.Label("Season", htmlFor="season-dropdown"),
+        dcc.Dropdown(
+            id="season-dropdown",
+            options=[{"label": season, "value": season} for season in SEASONS],
+            value=DEFAULT_SEASON,
+            clearable=False,
         ),
-    ], style={"margin":"30px 10px 10px 10px"}),
-    dcc.Graph(id="rankings-bar-chart", style={"height":"650px"}),
+    ], className="dropdown-frame", style={"margin":"30px 10px 10px 10px", "max-width":"300px"}),
+    html.Div(
+        dcc.Graph(id="rankings-bar-chart", style={"height":"650px"}),
+        className="chart-frame",
+    ),
 ], style=box_style)
 
 @callback(
     Output("rankings-bar-chart", "figure"),
-    Input("season-slider", "value"),
+    Input("season-dropdown", "value"),
 )
-def update_rankings_chart(season_index):
-    season = SEASONS[season_index]
+def update_rankings_chart(season):
     season_df = df[df["SEASON"] == season].sort_values("NET_RATING", ascending=False)
 
     fig = px.bar(
@@ -79,7 +78,7 @@ def update_rankings_chart(season_index):
         coloraxis_showscale=False,
         margin=dict(t=60, b=40),
         height=650,
-        font=dict(family="Inter, Arial, sans-serif", color="#001238", size=14),
-        title_font=dict(family="Oswald, Arial, sans-serif", size=22, color="#001238")
+        font=dict(family="Inter, Arial, sans-serif", color="#001238", size=16),
+        title_font=dict(family="Oswald, Arial, sans-serif", size=24, color="#001238")
     )
     return fig

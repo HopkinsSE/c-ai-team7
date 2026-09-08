@@ -17,7 +17,7 @@ import dash_bootstrap_components as dbc
 
 
 app = Dash(__name__, use_pages=True, suppress_callback_exceptions=True,
-           title="Assistant Coach Recruitment Hub", external_stylesheets=[dbc.themes.BOOTSTRAP])
+           title="BEYOND THE BOX SCORE", external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 server = app.server
 
@@ -28,7 +28,7 @@ app.layout = html.Div([
             dbc.NavLink("Efficiency Scale", href="/page1", active="exact"),
             dbc.NavLink("Team Trends", href="/page2", active="exact")
         ],
-        brand="Coaching Assistant Dashboard", color="#070096ff",
+        brand="BEYOND THE BOX SCORE", color="#070096ff",
         fluid=True
     ), dash.page_container
 ])

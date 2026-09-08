@@ -56,12 +56,8 @@ DIVISION_ORDER = {
     "Northwest": 4, "Pacific": 5, "Southwest": 6,
 }
 
-# ---- Build season slider mapping ----
-# Sorted list of season strings, e.g. ['2021-2022', '2022-2023', ...]
+# ---- Sorted list of seasons for the season dropdown ----# Sorted list of season strings, e.g. ['2021-2022', '2022-2023', ...]
 season_list = sorted(team_stats["SEASON"].unique())
-
-# Maps slider position (0,1,2...) -> season label, for display on the slider
-season_marks = {i: season for i, season in enumerate(season_list)}
 
 team_lookup = (
     team_stats[["TEAM_ID", "TEAM_NAME", "TEAM_ABBREVIATION", "CONFERENCE"]]
@@ -82,6 +78,7 @@ def _build_conference_header(conference_label):
         id={"type": "conference-select-all", "conference": conference_label},
         options=[{"label": f"{conference_label} Conference", "value": "ALL"}],
         value=["ALL"],
+        className="conference-label",
     )
 
 
@@ -105,6 +102,7 @@ def _build_division_block(conference_label, division, df):
                 },
                 options=[{"label": division, "value": "ALL"}],
                 value=["ALL"],
+                className="division-label",
             ),
             dcc.Checklist(
                 id={
@@ -154,16 +152,16 @@ def _build_team_selector_grid(df):
     return html.Div(rows)
 
 layout = html.Div([
-    html.Div([
+        html.Div([
         html.H2("Efficiency vs. Win % Explorer", className="page-title"),
                 html.P("Compare team efficiency metrics against win percentage.",
                    className="page-subtitle"),
     ],
     style={
-        "backgroundColor":"#ffa826c1",
+        "backgroundColor": "#ffa826c1",
         "padding": "20px 25px",
-        "borderRadius":"6px",
-        "marginBottom":"20px",
+        "borderRadius": "6px",
+        "marginBottom": "20px",
     },
     ),
 
@@ -171,30 +169,34 @@ layout = html.Div([
     dbc.Row(
         [
             dbc.Col(
-                [
-                    html.Label("Select Efficiency Metric:"),
-                    dcc.Dropdown(
-                        id="metric-dropdown",
-                        options=metric_options,
-                        value="NET_RATING",
-                        clearable=False
-                    ),
-                ],
+                html.Div(
+                    [
+                        html.Label("Select Efficiency Metric:"),
+                        dcc.Dropdown(
+                            id="metric-dropdown",
+                            options=metric_options,
+                            value="NET_RATING",
+                            clearable=False
+                        ),
+                    ],
+                    className="dropdown-frame",
+                ),
                 md=3,
             ),
             dbc.Col(
-                [
-                    html.Label("Select Season:"),
-                    dcc.Slider(
-                        id="page1-season-slider",
-                        min=0,
-                        max=len(season_list) - 1,
-                        step=1,
-                        value=len(season_list) - 1,
-                        marks=season_marks
-                    ),
-                ],
-                md=9,
+                html.Div(
+                    [
+                        html.Label("Select Season:"),
+                        dcc.Dropdown(
+                            id="page1-season-dropdown",
+                            options=[{"label": season, "value": season} for season in season_list],
+                            value=season_list[-1],
+                            clearable=False,
+                        ),
+                    ],
+                    className="dropdown-frame",
+                ),
+                md=3,
             ),
         ],
         className="mb-3",
@@ -209,27 +211,27 @@ layout = html.Div([
                     html.Label("Select Teams to Display:"),
                     html.Div(
                         _build_team_selector_grid(team_lookup),
+                        className="checklist-frame",
                         style={
                             "maxHeight": "650px",
                             "overflowY": "auto",
                             "overflowX": "hidden",
                             "width": "100%",
                             "boxSizing": "border-box",
-                            "border": "1px solid #ddd",
-                            "borderRadius": "6px",
-                            "padding": "10px",
                             "fontSize": "14px",
-                            "backgroundColor": "#ffffff"
                         },
                     ),
                 ],
                 md=3,
             ),
-            dbc.Col(
-                dcc.Graph(
-                    id="efficiency-scatter",
-                    style={"height": "650px", "width": "100%"},
-                    config={"responsive": True},
+                        dbc.Col(
+                html.Div(
+                    dcc.Graph(
+                        id="efficiency-scatter",
+                        style={"height": "650px", "width": "100%"},
+                        config={"responsive": True},
+                    ),
+                    className="chart-frame",
                 ),
                 md=9,
             ),
@@ -253,10 +255,10 @@ def _build_logo_scatter(df, x_col, y_col, x_label, y_label, title):
             mode="markers",
             marker=dict(size=1, opacity=0),
             customdata=df["TEAM_NAME"],
-            hovertemplate=(
+                        hovertemplate=(
                 "<b>%{customdata}</b><br>"
                 f"{x_label}: " + "%{x}<br>"
-                f"{y_label}: " + "%{y}<extra></extra>"
+                f"{y_label}: " + "%{y:.1%}<extra></extra>"
             ),
             showlegend=False,
         )
@@ -298,9 +300,17 @@ def _build_logo_scatter(df, x_col, y_col, x_label, y_label, title):
         title=title,
         xaxis_title=x_label,
         yaxis_title=y_label,
-        template="plotly_white",
+        yaxis=dict(range=[0, 1], tickformat=".0%"),
+                template="plotly_white",
         margin=dict(l=60, r=30, t=60, b=50),
         autosize=True,
+        font=dict(family="Inter, Arial, sans-serif", color="#001238", size=16),
+        title_font=dict(family="Oswald, Arial, sans-serif", size=22, color="#001238"),
+        hoverlabel=dict(
+            bgcolor="#070096",
+            font_color="#ffffff",
+            font_size=13,
+        ),
     )
 
     if has_missing_logo:
@@ -310,8 +320,8 @@ def _build_logo_scatter(df, x_col, y_col, x_label, y_label, title):
             x=0, y=1.08, showarrow=False,
             font=dict(size=11, color="gray"),
         )
-
     return fig
+
 @callback(
     Output({"type": "division-select-all", "conference": MATCH, "division": MATCH}, "value"),
     Output({"type": "division-checklist", "conference": MATCH, "division": MATCH}, "value", allow_duplicate=True),
@@ -348,21 +358,19 @@ def sync_conference_select_all(conference_value, all_division_options):
 @callback(
     Output("efficiency-scatter", "figure"),
     Input("metric-dropdown", "value"),
-    Input("page1-season-slider", "value"),
-        Input({"type": "division-checklist", "conference": ALL, "division": ALL}, "value"),
+    Input("page1-season-dropdown", "value"),
+    Input({"type": "division-checklist", "conference": ALL, "division": ALL}, "value"),
 )
 
-def update_scatter(selected_metric, selected_season_index, division_selections):
+def update_scatter(selected_metric, selected_season, division_selections):
     selected_team_ids = [
         team_id for division_values in division_selections for team_id in division_values
     ]
-    # Step 1: convert slider position -> actual season string
-    selected_season = season_list[selected_season_index]
-    # Step 2: filter rows to just that season
+    # Step 1: filter rows to just that season
     filtered = team_stats[team_stats["SEASON"] == selected_season]
-    # Step 3: filter rows to just the checked teams
+    # Step 2: filter rows to just the checked teams
     filtered = filtered[filtered["TEAM_ID"].isin(selected_team_ids)]
-    # Step 4: handle the empty-selection edge case
+    # Step 3: handle the empty-selection edge case
     if filtered.empty:
         empty_fig = go.Figure()
         empty_fig.update_layout(
@@ -370,7 +378,7 @@ def update_scatter(selected_metric, selected_season_index, division_selections):
             template="plotly_white",
         )
         return empty_fig
-    # Step 5: build labels and the scatter plot
+    # Step 4: build labels and the scatter plot
     x_label = METRIC_LABELS.get(selected_metric, selected_metric.replace("_", " ").title())
     y_label = "Win %"
     title = f"{x_label} vs. {y_label} - {selected_season}"
