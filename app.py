@@ -11,25 +11,25 @@
 ## Used Claude to help build visualization charts for each page.
 ## Used Claude to create callbacks for each graph to make charts interactive
 # and dynamic for user.
-## USed Claude to troubleshoot when errors occurred.
+## Used Claude to troubleshoot when errors occurred.
 ###################################################################
 
-import requests
-import datetime as dt
-import pandas as pd
 import dash
-from dash import Dash, html, dcc, Input, Output, callback
-import plotly.express as px
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
+from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
 
-
+#Setup App
+#use_pages enables Dash's built-in multi-page routing (pages auto-register from /pages).
+#suppress_callback_exceptions=True is required for multi-page apps since callback
+#targets on other pages don't exist in the layout until that page is loaded.
+#server = app.server is exposed for deployment
 app = Dash(__name__, use_pages=True, suppress_callback_exceptions=True,
            title="BEYOND THE BOX SCORE", external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 server = app.server
 
+#App Layout
+#creates persistent navbar across all pages and dash.page_container
 app.layout = html.Div([
     dbc.NavbarSimple(
         children=[
@@ -42,5 +42,6 @@ app.layout = html.Div([
     ), dash.page_container
 ])
 
+#Run server
 if __name__ == "__main__":
     app.run(debug=True)

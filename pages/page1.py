@@ -1,14 +1,30 @@
+########################### AI USE ################################
+## Used Claude to help build initial charts and callbacks, then used it to make more sophisticated.
+## Used Claude to help design the MATCH/ALL pattern-matching callback structure.
+## Used Claude to help code syncing conference/division/team checkboxes.
+## Used Claude to create the logo scatter plot, using add_layout_image approach.
+## Used Claude to debug and troubleshoot small syntax errors.
+## Reviewed and tested by all team members.
+###################################################################
+
 import dash
 from dash import html, dcc, callback, Input, Output, ALL, MATCH, ctx, State
 import dash_bootstrap_components as dbc
-import requests
 import pandas as pd
 import plotly.graph_objects as go
 from pathlib import Path
 
 dash.register_page(__name__, path="/page1", name="Page 1")
 
-#load data - will need to remove later
+# --- Data loading ---
+# Loads two local CSVs: team_meta (static team info: conference, logo URL, etc.)
+# and team_stats_2021_2026 (season-by-season team performance stats).
+# _find_csv() checks both this page's folder and the parent folder so the app
+# doesn't break if teammates organize their /data folder differently.
+#
+# Merge step: adds any team_meta columns not already present in team_stats
+# (joined on TEAM_ABBREVIATION), so downstream code has CONFERENCE/TEAM_ID
+# available without duplicate columns.
 THIS_DIR = Path(__file__).resolve().parent
 
 def _find_csv(filename):
@@ -30,7 +46,10 @@ team_stats = team_stats.merge(
     how="left",
 )
 
+
 # ---- Build dropdown options from the efficiency columns ----
+#maps raw stat column names to display-friendly labels; also
+# drives the dropdown options and chart axis/title text from one source of truth.
 METRIC_LABELS = {
     "NET_RATING": "Net Rating",
     "OFF_RATING": "Offensive Rating",
@@ -38,10 +57,13 @@ METRIC_LABELS = {
     "PACE": "Pace",
     "EFG_PCT": "Effective FG%",
 }
+#flags which metrics should render as a %
 PERCENT_METRICS = {"EFG_PCT"}
 metric_options = [{"label": v, "value": k} for k, v in METRIC_LABELS.items()]
 
-# ---- Hardcoded division map (NBA divisions are fixed, not in the data) ----
+# ---- Hardcoded division map ----
+#NBA divisions are fixed real-world groupings not present in the
+#stats CSV, so they're hardcoded here rather than derived from data.
 DIVISION_MAP = {
     "ATL": "Southeast", "BOS": "Atlantic", "BKN": "Atlantic", "CHA": "Southeast",
     "CHI": "Central", "CLE": "Central", "DAL": "Southwest", "DEN": "Northwest",
@@ -52,14 +74,20 @@ DIVISION_MAP = {
     "POR": "Northwest", "SAC": "Pacific", "SAS": "Southwest", "TOR": "Atlantic",
     "UTA": "Northwest", "WAS": "Southeast",
 }
+#sort key so divisions display in standard league order
+#(Atlantic -> Southwest) instead of alphabetically.
 DIVISION_ORDER = {
     "Atlantic": 1, "Central": 2, "Southeast": 3,
     "Northwest": 4, "Pacific": 5, "Southwest": 6,
 }
 
-# ---- Sorted list of seasons for the season dropdown ----# Sorted list of season strings, e.g. ['2021-2022', '2022-2023', ...]
+# ---- Sorted list of seasons for the season dropdown ----
+# e.g. ['2021-2022', '2022-2023', ...]
 season_list = sorted(team_stats["SEASON"].unique())
 
+# one row per team (deduplicated from the season-by-season stats
+# table) with division attached, used to build the conference/division/team
+# checkbox grid below.
 team_lookup = (
     team_stats[["TEAM_ID", "TEAM_NAME", "TEAM_ABBREVIATION", "CONFERENCE"]]
     .drop_duplicates()
@@ -73,6 +101,14 @@ _missing = team_lookup[team_lookup["DIVISION"].isna()]
 if not _missing.empty:
     print("Warning: no division match for:", _missing["TEAM_ABBREVIATION"].tolist())
 
+# --- Team selector grid: conference -> division -> team checkboxes ---
+# Dash's pattern-matching callbacks (ALL/MATCH) require each targetable
+# component to have a dict-based id (rather than a plain string), so a
+# callback can select "every division checklist" or "just the one division
+# matching this conference" without a hardcoded id per division.
+
+#one master checkbox per conference
+#(id includes {"type": "conference-select-all", "conference": ...}).
 def _build_conference_header(conference_label):
     """Just the top-level 'select all teams in this conference' checkbox."""
     return dcc.Checklist(
@@ -82,7 +118,9 @@ def _build_conference_header(conference_label):
         className="conference-label",
     )
 
-
+#one master checkbox + the team checklist for a
+#   single division (ids include conference AND division so MATCH can
+#   target just this division's pair).
 def _build_division_block(conference_label, division, df):
     """One division's select-all checkbox + its team checklist."""
     div_df = df[(df["CONFERENCE"] == conference_label) & (df["DIVISION"] == division)]
@@ -117,7 +155,11 @@ def _build_division_block(conference_label, division, df):
         ]
     )
 
-
+#assembles the full grid by reading whichever
+#   conferences/divisions actually exist in the data (not hardcoded), sorting
+#   divisions into standard league order, and laying out conference headers
+#   on top with paired East/West division rows beneath. All teams and
+#   divisions default to checked so the chart opens fully populated.
 def _build_team_selector_grid(df):
     """East/West headers on top; below, 3 rows pairing one East division
     with one West division side by side (Atlantic|Northwest, Central|Pacific,
@@ -152,10 +194,17 @@ def _build_team_selector_grid(df):
 
     return html.Div(rows)
 
+
+# --- Page layout ---
+# Header: title + explainer text orienting the user before they touch controls.
+# Controls row: metric dropdown (x-axis stat, defaults to Net Rating) and
+#   season dropdown (defaults to the most recent season).
+# Content row: scrollable conference/division/team checklist grid (left) next
+#   to the scatter chart (right, responsive to window resizing).
 layout = html.Div([
         html.Div([
         html.H2("Efficiency vs. Win % Explorer", className="page-title"),
-                html.P([
+            html.P([
                     f"Talent shows up in the box score, but it doesn’t tell the full story about team success. This page includes advanced stats for every team in relation to success in a manner that tells a much deeper story.",
                        html.Br(), html.Br(),
                         f"Each dot is a team, plotted by Win % against an advanced metric of your choosing. Net Rating tends to line up closely with winning — it should, since it accounts for both ends of the floor. Other metrics tell a different story: a team can pace up and down and still lose, or shoot a high effective field goal percentage without translating it into wins.",
@@ -249,6 +298,19 @@ layout = html.Div([
     ),
 ], className="page1-wrap", style={"padding": "20px 30px", "maxWidth": "100%"})
 
+
+# --- Logo scatter builder ---
+# Plotly has no native "image as marker" mode, so this uses a two-layer trick:
+#   1. An invisible scatter trace (opacity=0) at the real data points drives
+#      hover tooltips via hovertemplate/customdata.
+#   2. Each team's logo is placed separately via add_layout_image, anchored at
+#      that team's (x, y) coordinate. Logo size (sizex/sizey) scales with the
+#      data range so it looks reasonable regardless of which metric is plotted.
+# Teams missing a LOGO_URL fall back to a plain gray dot with a normal hover
+# label (error handling for incomplete data), and an annotation explains the
+# gray dots to the user if any appear.
+# x_is_pct toggles percentage vs. decimal formatting on the x-axis depending
+# on which metric was selected (Win % on the y-axis is always a percentage).
 def _build_logo_scatter(df, x_col, y_col, x_label, y_label, title, x_is_pct=False):
     """
     Builds a scatter plot where each point is a team's logo instead of a dot.
@@ -333,6 +395,15 @@ def _build_logo_scatter(df, x_col, y_col, x_label, y_label, title, x_is_pct=Fals
         )
     return fig
 
+# --- Callback: sync one division's "select all" checkbox with its teams ---
+# Two-way sync using MATCH so this single callback definition handles every
+# division independently (Atlantic's checkbox never affects Pacific's, etc.).
+# ctx.triggered_id tells us which side the user actually touched:
+#   - master checkbox clicked -> check/uncheck every team in that division
+#   - an individual team box changed -> update the master to reflect whether
+#     all teams in the division are now checked
+# allow_duplicate=True is required because division-checklist's value is both
+# an Input and an Output here; prevent_initial_call=True avoids firing on load.
 @callback(
     Output({"type": "division-select-all", "conference": MATCH, "division": MATCH}, "value"),
     Output({"type": "division-checklist", "conference": MATCH, "division": MATCH}, "value", allow_duplicate=True),
@@ -355,6 +426,18 @@ def sync_division_select_all(select_all_value, checklist_value, options):
     if set(checklist_value) == set(all_team_ids):
         return ["ALL"], checklist_value
     return [], checklist_value
+
+# --- Callback: conference "select all" checkbox controls all its divisions ---
+# Combines MATCH (only this conference) with ALL (every division within it),
+# so Outputs/State come back as a list-of-lists, one list per division.
+# Checking the conference box fully checks every team in every division below
+# it; unchecking clears them all.
+# Note: this is one-directional (conference -> divisions only). It doesn't
+# watch division-level changes to re-sync the conference checkbox upward,
+# to avoid circular updates with the division-level sync callback above.
+# As a result, the conference checkbox can display "checked" even if a user
+# has since unchecked an individual team below it -- a cosmetic quirk, not a
+# data bug, since the chart itself reads the actual checklist values directly.
 @callback(
     Output({"type": "division-checklist", "conference": MATCH, "division": ALL}, "value", allow_duplicate=True),
     Input({"type": "conference-select-all", "conference": MATCH}, "value"),
@@ -373,6 +456,14 @@ def sync_conference_select_all(conference_value, all_division_options):
     Input({"type": "division-checklist", "conference": ALL, "division": ALL}, "value"),
 )
 
+# --- Callback: redraw the scatter chart from all three controls ---
+# Inputs: metric dropdown (x-axis stat), season dropdown, and every division
+# checklist's value (pattern-matched with ALL/ALL, arrives as a list of lists
+# -- one list of checked TEAM_IDs per division -- so it's flattened first).
+# Filters team_stats to the selected season + checked teams, then hands off
+# to _build_logo_scatter. If the user unchecks every team, returns a
+# placeholder figure with guidance text instead of crashing on an empty
+# DataFrame (empty/invalid-input handling).
 def update_scatter(selected_metric, selected_season, division_selections):
     selected_team_ids = [
         team_id for division_values in division_selections for team_id in division_values
