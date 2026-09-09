@@ -3,8 +3,10 @@ import sys
 import pandas as pd
 from nba_api.stats.endpoints import leaguedashteamstats
 
+#Set up the seasons we want to pull
 SEASONS = ["2021-22", "2022-23", "2023-24", "2024-25", "2025-26"]
 
+#Set up the columns we want to keep from the API call
 BASE_COLS = [
     "TEAM_ID", "TEAM_NAME", "GP", "W", "L", "W_PCT",
 ]
@@ -13,12 +15,14 @@ ADV_COLS = [
     "TEAM_ID", "OFF_RATING", "DEF_RATING", "NET_RATING", "PACE", "EFG_PCT",
 ]
 
+#Retry/timeout behavior for the API calls
 MAX_RETRIES = 4
 RETRY_SLEEP_SECONDS = 5
 BETWEEN_CALL_SLEEP_SECONDS = 1.0
 TIMEOUT_SECONDS = 30
 
-
+#Calls the NBA leaguedashteamstats, retries on failure/timeout/empty response
+#Does it up to MAX_RETRIES (4) time before giving up and raises a RuntimeError
 def fetch_with_retry(measure_type: str, season: str) -> pd.DataFrame:
     last_err = None
     for attempt in range(1, MAX_RETRIES + 1):
@@ -36,8 +40,8 @@ def fetch_with_retry(measure_type: str, season: str) -> pd.DataFrame:
             return df
         except Exception as e:
             last_err = e
-            print(f"[{season}] | {measure_type}] attempt {attempt}/{MAX_RETRIES}"
-                  f"failed: {e!r}"
+            print(f"[{season}] | {measure_type} attempt {attempt}/{MAX_RETRIES}"
+                  f" failed: {e!r}"
             )
             if attempt < MAX_RETRIES:
                 time.sleep(RETRY_SLEEP_SECONDS)
@@ -45,6 +49,8 @@ def fetch_with_retry(measure_type: str, season: str) -> pd.DataFrame:
         f"Failed to fetch {measure_type} stats for {season} after"
         f"{MAX_RETRIES}. Last error: {last_err!r}")
 
+#Fetchs and merges the Base and Advanced stats for one season into a single
+#30-row-per-season dataframe
 def fetch_season(season: str) -> pd.DataFrame:
     print(f"Fetching {season}")
     base_df = fetch_with_retry("Base", season)
@@ -57,13 +63,17 @@ def fetch_season(season: str) -> pd.DataFrame:
 
     merged = base_df.merge(adv_df, on="TEAM_ID", how="inner")
     merged.insert(0, "SEASON", season)
-    merged.rename(columns={"W_PCT":"WIN_PCT"}, inplace=True)
+    #Renames W_PCT -> WIN_PCT for readability
 
+    merged.rename(columns={"W_PCT":"WIN_PCT"}, inplace=True)
+    #Prints warning if less than 30 teams come back to warn against bad data
     if len(merged) != 30:
         print(f"WARNING: expected 30 teams for {season}, got {len(merged)}. Check data.")
     return merged
 
-
+#Create Static team reference table (abbreviation, conference, brand color).
+#Written to team_meta.csv and also merged into the season stats file 
+#so the dashboard has colors/logos/conference without extra lookups.
 TEAM_META = [
     (1610612737, "ATL", "East", "#E03A3E"),
     (1610612738, "BOS", "East", "#007A33"),
@@ -97,9 +107,11 @@ TEAM_META = [
     (1610612764, "WAS", "East", "#002B5C"),
 ]
 
+#Write team metadata, fetch each season
 def write_team_meta():
     meta_df = pd.DataFrame(
         TEAM_META, columns=["TEAM_ID", "TEAM_ABBREVIATION", "CONFERENCE", "PRIMARY_COLOR"])
+    #Built from NBA.com's public CDN path pattern to grab logos
     meta_df["LOGO_URL"] = meta_df["TEAM_ID"].apply(
         lambda tid: f"https://cdn.nba.com/logos/nba/{tid}/global/L/logo.svg"
     )
@@ -137,7 +149,7 @@ def main():
         on="TEAM_ID",
         how="left",
     )
- 
+ #Saves to team_stats_2021_2026.csv for final use
     out_path = "team_stats_2021_2026.csv"
     full.to_csv(out_path, index=False)
     print(f"\nSaved {len(full)} rows to {out_path}")
