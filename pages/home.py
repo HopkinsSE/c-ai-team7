@@ -93,8 +93,7 @@ def update_rankings_chart(season):
         color="NET_RATING",
         color_continuous_scale = "RdYlGn",
         color_continuous_midpoint = 0,
-        custom_data=["TEAM_NAME", "WIN_PCT_DISPLAY", "W", "L"],
-        labels={"NET_RATING": "Net Rating", TEAM_COL: "Team"},
+        custom_data=["TEAM_NAME", "WIN_PCT", "W", "L"],        labels={"NET_RATING": "Net Rating", TEAM_COL: "Team"},
         title=f"NBA Team Net Rating -- {season} Regular Season",
 )
     # Hide default tick labels/title — team identity is shown via logos instead (see below)
