@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from pathlib import Path
 import plotly.express as px
+import gunicorn
 
 dash.register_page(__name__, path="/page2", name="Team Trends Over Time")
 

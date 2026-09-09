@@ -5,6 +5,7 @@ import requests
 import pandas as pd
 import plotly.graph_objects as go
 from pathlib import Path
+import gunicorn
 
 dash.register_page(__name__, path="/page1", name="Page 1")
 

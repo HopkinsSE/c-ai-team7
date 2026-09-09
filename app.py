@@ -23,6 +23,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import dash_bootstrap_components as dbc
+import gunicorn
 
 
 app = Dash(__name__, use_pages=True, suppress_callback_exceptions=True,
