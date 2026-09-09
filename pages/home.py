@@ -32,7 +32,13 @@ box_style = {
 
 layout = html.Div([
     html.H2("NBA Team Power Rankings"),
-    html.P("[INSERT DESCRIPTION ABOUT THE SPORTS API SALARY CAP SITUTATION (FROM TEAM TO TEAM) HERE]."),
+    html.P(f"Every team's story starts with two questions: can you score, and can you stop the other team from scoring. This site breaks down NBA team performance using the numbers that matter most — not just wins and losses, but the underlying efficiency that drives them. We look at five seasons of team data to answer one question: what actually separates the good teams from the great ones? A few terms you'll see throughout:"
+            f"Offensive Rating  — Points scored per 100 possessions."
+            f"Defensive Rating  — Points allowed per 100 possessions."
+            f"Net Rating — Difference between Offensive Rating and Defensive Rating."
+            f"Effective Field Goal Percentage — Shooting efficiency stat that adjusts regular field goal percentage to account for three pointers being worth more than two point field goals."
+            f"Pace — Number of possessions a team uses per 48 minutes."
+),
         html.Div([
                 html.Label("Season", htmlFor="season-dropdown"),
         dcc.Dropdown(
