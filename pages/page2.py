@@ -131,9 +131,12 @@ def _build_team_selector_grid(df):
 
 layout = html.Div([
      html.H2("Team Performance Across Seasons", className="page-title"),
-        html.P(f"One season tells you where a team is. Five seasons tell you where it's headed."
-                f"Track a team's Win % over time to see the story arc — a steady climb, a plateau, or a step back. The second chart pairs that with an efficiency metric of your choice, so you can see whether the win trend is backed up by real improvement on offense or defense, or whether it's running ahead of (or behind) what the underlying numbers say. This page is great for noting which teams could be headed in the direction of a potential rebuild." 
-                f"Select up to five teams individually, or pull in a full division to compare how a group has moved together."
+        html.P([
+            f"One season tells you where a team is. Five seasons tell you where it's headed.",
+               html.Br(),
+                f"Track a team's Win % over time to see the story arc — a steady climb, a plateau, or a step back. The second chart pairs that with an efficiency metric of your choice, so you can see whether the win trend is backed up by real improvement on offense or defense, or whether it's running ahead of (or behind) what the underlying numbers say. This page is great for noting which teams could be headed in the direction of a potential rebuild.",
+                html.Br(), 
+                f"Select up to five teams individually, or pull in a full division to compare how a group has moved together."]
 ),
     html.Div([
         html.Div([

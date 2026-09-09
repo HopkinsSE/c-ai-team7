@@ -155,11 +155,16 @@ def _build_team_selector_grid(df):
 layout = html.Div([
         html.Div([
         html.H2("Efficiency vs. Win % Explorer", className="page-title"),
-                html.P(f"Talent shows up in the box score, but it doesn’t tell the full story about team success. This page includes advanced stats for every team in relation to success in a manner that tells a much deeper story."
-                        f"Each dot is a team, plotted by Win % against an advanced metric of your choosing. Net Rating tends to line up closely with winning — it should, since it accounts for both ends of the floor. Other metrics tell a different story: a team can pace up and down and still lose, or shoot a high effective field goal percentage without translating it into wins."
-                        f"Filter by conference, division, or individual team to see whether the pattern holds across the entire league or breaks down in specific matchups. If a team sits well off the trend line, that's usually where the interesting story is."
-,
-                   className="page-subtitle"),
+                html.P([
+                    f"Talent shows up in the box score, but it doesn’t tell the full story about team success. This page includes advanced stats for every team in relation to success in a manner that tells a much deeper story.",
+                       html.Br(), html.Br(),
+                        f"Each dot is a team, plotted by Win % against an advanced metric of your choosing. Net Rating tends to line up closely with winning — it should, since it accounts for both ends of the floor. Other metrics tell a different story: a team can pace up and down and still lose, or shoot a high effective field goal percentage without translating it into wins.",
+                        html.Br(),
+                        f" ",
+                        f"Filter by conference, division, or individual team to see whether the pattern holds across the entire league or breaks down in specific matchups. If a team sits well off the trend line, that's usually where the interesting story is.",
+                        html.Br(),
+
+        ],className="page-subtitle"),
     ],
     style={
         "backgroundColor": "#ffa826c1",
