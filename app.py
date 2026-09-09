@@ -4,6 +4,12 @@
 ## Solomon Sledge
 ###################################################################
 
+########################### SOURCES CITED ###########################
+## Source: NBA Summer League playoffs Recap: Quaterfinals. (2016, July 17). Mountain West Connection. https://www.mwcconnection.com/2016/7/16/12207258/nba-summer-league-playoffs-recap-quaterfinals
+## Source: Claude (for generating code/layout/text ideas and getting team logos, confirmed with/by Professor Schlosser)
+## Source: Swar. (n.d.). GitHub - swar/nba_api: An API Client package to access the APIs for NBA.com. GitHub. https://github.com/swar/nba_api (for the API to gather data for CSV)
+###################################################################
+
 ########################### AI USE ################################
 ## Used Claude to brainstorm project topic and page layout ideas.
 ## Used Claude to help download testing data into a CSV file.
