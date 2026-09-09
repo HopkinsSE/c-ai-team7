@@ -1,0 +1,35 @@
+/* Packages and Imports for app.py
+import requests
+import datetime as dt
+import pandas as pd
+import dash
+from dash import Dash, html, dcc, Input, Output, callback
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import dash_bootstrap_components as dbc
+
+/* Packages and Imports for home.py
+import pandas as pd
+import dash
+from dash import Dash, html, dcc, Input, Output, callback
+import plotly.express as px
+from pathlib import Path
+
+/* Packages and Imports for page1.py
+import dash
+from dash import html, dcc, callback, Input, Output, ALL, MATCH, ctx, State
+import dash_bootstrap_components as dbc
+import requests
+import pandas as pd
+import plotly.graph_objects as go
+from pathlib import Path
+
+/* Packages and Imports for page2.py
+import dash
+from dash import html, dcc, callback, Input, Output, ALL, MATCH, ctx, State
+import pandas as pd
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+from pathlib import Path
+import plotly.express as px
