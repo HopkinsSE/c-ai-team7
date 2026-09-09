@@ -1,8 +1,17 @@
+########################### TEAM 7 ################################
+## Jasmine Dickerson
+## Samuel Hopkins
+## Solomon Sledge
+###################################################################
+
 ########################### AI USE ################################
-## Used Claude to brainstorm project topic and page layout ideas
-## Used Claude to help download testing data into a CSV file
-## Used Claude for creating code for Dash styling ideas
-## Used Claude to help build visualization charts for each page
+## Used Claude to brainstorm project topic and page layout ideas.
+## Used Claude to help download testing data into a CSV file.
+## Used Claude for creating code for Dash styling ideas.
+## Used Claude to help build visualization charts for each page.
+## Used Claude to create callbacks for each graph to make charts interactive
+# and dynamic for user.
+## USed Claude to troubleshoot when errors occurred.
 ###################################################################
 
 import requests
