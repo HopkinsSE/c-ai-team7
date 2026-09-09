@@ -38,6 +38,7 @@ METRIC_LABELS = {
     "PACE": "Pace",
     "EFG_PCT": "Effective FG%",
 }
+PERCENT_METRICS = {"EFG_PCT"}
 metric_options = [{"label": v, "value": k} for k, v in METRIC_LABELS.items()]
 
 # ---- Hardcoded division map (NBA divisions are fixed, not in the data) ----
@@ -240,14 +241,14 @@ layout = html.Div([
     ),
 ], className="page1-wrap", style={"padding": "20px 30px", "maxWidth": "100%"})
 
-def _build_logo_scatter(df, x_col, y_col, x_label, y_label, title):
+def _build_logo_scatter(df, x_col, y_col, x_label, y_label, title, x_is_pct=False):
     """
     Builds a scatter plot where each point is a team's logo instead of a dot.
     An invisible trace drives hover tooltips; logos are layered on top via
     add_layout_image. Teams missing a logo URL fall back to a gray dot.
     """
     fig = go.Figure()
-
+    x_fmt = "%{x:.1%}" if x_is_pct else "%{x:.1f}"
     fig.add_trace(
         go.Scatter(
             x=df[x_col],
@@ -255,10 +256,10 @@ def _build_logo_scatter(df, x_col, y_col, x_label, y_label, title):
             mode="markers",
             marker=dict(size=1, opacity=0),
             customdata=df["TEAM_NAME"],
-                        hovertemplate=(
-                "<b>%{customdata}</b><br>"
-                f"{x_label}: " + "%{x}<br>"
-                f"{y_label}: " + "%{y:.1%}<extra></extra>"
+            hovertemplate=(
+                f"<b>%{{customdata}}</b><br>"
+                f"{x_label}: {x_fmt}<br>"
+                f"{y_label}: %{{y:.1%}}<extra></extra>"
             ),
             showlegend=False,
         )
@@ -266,8 +267,8 @@ def _build_logo_scatter(df, x_col, y_col, x_label, y_label, title):
 
     x_range = df[x_col].max() - df[x_col].min()
     y_range = df[y_col].max() - df[y_col].min()
-    sizex = x_range * 0.10 if x_range > 0 else 1
-    sizey = y_range * 0.10 if y_range > 0 else 0.05
+    sizex = x_range * 0.12 if x_range > 0 else 1
+    sizey = y_range * 0.12 if y_range > 0 else 0.05
 
     has_missing_logo = False
     for _, row in df.iterrows():
@@ -295,17 +296,19 @@ def _build_logo_scatter(df, x_col, y_col, x_label, y_label, title):
                     showlegend=False,
                 )
             )
-
+    xaxis_settings = dict(tickformat=".0%") if x_is_pct else dict()
+    
     fig.update_layout(
         title=title,
         xaxis_title=x_label,
+        xaxis=xaxis_settings,
         yaxis_title=y_label,
         yaxis=dict(range=[0, 1], tickformat=".0%"),
                 template="plotly_white",
         margin=dict(l=60, r=30, t=60, b=50),
         autosize=True,
         font=dict(family="Inter, Arial, sans-serif", color="#001238", size=16),
-        title_font=dict(family="Oswald, Arial, sans-serif", size=22, color="#001238"),
+        title_font=dict(family="Oswald, Arial, sans-serif", size=26, color="#001238"),
         hoverlabel=dict(
             bgcolor="#070096",
             font_color="#ffffff",
@@ -382,4 +385,5 @@ def update_scatter(selected_metric, selected_season, division_selections):
     x_label = METRIC_LABELS.get(selected_metric, selected_metric.replace("_", " ").title())
     y_label = "Win %"
     title = f"{x_label} vs. {y_label} - {selected_season}"
-    return _build_logo_scatter(filtered, selected_metric, "WIN_PCT", x_label, y_label, title)
+    x_is_pct = selected_metric in PERCENT_METRICS
+    return _build_logo_scatter(filtered, selected_metric, "WIN_PCT", x_label, y_label, title, x_is_pct=x_is_pct)

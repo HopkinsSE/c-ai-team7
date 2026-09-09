@@ -54,7 +54,8 @@ layout = html.Div([
 )
 def update_rankings_chart(season):
     season_df = df[df["SEASON"] == season].sort_values("NET_RATING", ascending=False)
-
+    season_df["WIN_PCT_DISPLAY"] = season_df["WIN_PCT"]
+    
     fig = px.bar(
         season_df,
         x=TEAM_COL,
@@ -62,23 +63,48 @@ def update_rankings_chart(season):
         color="NET_RATING",
         color_continuous_scale = "RdYlGn",
         color_continuous_midpoint = 0,
-        hover_data={
-            "TEAM_NAME": True,
-            "WIN_PCT": ":.3f",
-            "W": True,
-            "L": True,
-            TEAM_COL: False,
-        },
+        custom_data=["TEAM_NAME", "WIN_PCT_DISPLAY", "W", "L"],
         labels={"NET_RATING": "Net Rating", TEAM_COL: "Team"},
         title=f"NBA Team Net Rating -- {season} Regular Season",
-    )
-    fig.update_xaxes(categoryorder="total descending", title="Team")
+)
+    fig.update_xaxes(categoryorder="total descending",
+                     title=None, showticklabels=False,)
     fig.update_yaxes(title="Net Rating")
+    fig.update_traces(
+        hovertemplate=(
+            "<b>%{customdata[0]}</b><br>"
+            "Net Rating: %{y:.1f}<br>"
+            "Win %: %{customdata[1]:.1%}<br>"
+            "Wins: %{customdata[2]}<br>"
+            "Losses: %{customdata[3]}<extra></extra>"
+        )
+    )
     fig.update_layout(
         coloraxis_showscale=False,
-        margin=dict(t=60, b=40),
+        margin=dict(t=60, b=140),
         height=650,
         font=dict(family="Inter, Arial, sans-serif", color="#001238", size=16),
-        title_font=dict(family="Oswald, Arial, sans-serif", size=24, color="#001238")
+        title_font=dict(family="Oswald, Arial, sans-serif", size=26, color="#001238")
+    )
+    for _, row in season_df.iterrows():
+        logo_url = row.get("LOGO_URL")
+        if pd.notna(logo_url) and str(logo_url).strip():
+            fig.add_layout_image(
+                dict(
+                    source=logo_url,
+                    xref="x", yref="paper",
+                    x=row[TEAM_COL], y=-0.03,
+                    sizex=0.9, sizey=0.12,
+                    xanchor="center", yanchor="top",
+                    layer="above",
+                )
+            )
+    fig.add_annotation(
+    text="Team",
+    xref="paper", yref="paper",
+    x=0.5, y=-0.19,
+    xanchor="center", yanchor="top",
+    showarrow=False,
+    font=dict(family="Inter, Arial, sans-serif", size=20, color="#001238"),
     )
     return fig

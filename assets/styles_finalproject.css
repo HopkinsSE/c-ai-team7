@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap');
 
+.navbar-brand {
+    font-family: 'Oswald', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+}
+
 /*----- Dropdown menu: selected + hovered option text (scoped to dropdowns only) ----- */
 .dash-dropdown-options .dash-options-list-option.selected .dash-options-list-option-text span {
     color: #0bc1ef !important;
@@ -42,7 +48,8 @@ body {
 H2 {
     font-family: 'Oswald', Arial, sans-serif;
     font-weight: 650;
-    color: #001238
+    color: #001238;
+    font-size: 28px;
 }
 
 .nav-link {
@@ -55,8 +62,9 @@ H2 {
     background-color: #c56d02;
     color: #ffffff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 600;
+    text-align: center;
 }
 
 .nav-link:hover {
@@ -155,12 +163,12 @@ h2 {
 }
 
 .page-title {
-    font-size: 28px !important;
+    font-size: 30px !important;
 }
 
 .page-subtitle,
 p {
-    font-size: 17px;
+    font-size: 21px;
 }
 
 label {

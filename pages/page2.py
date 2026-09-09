@@ -130,7 +130,8 @@ def _build_team_selector_grid(df):
     ])
 
 layout = html.Div([
-       html.P("Track a single team's win percentage across seasons to spot rebuilds, "
+     html.H2("Team Performance Across Seasons", className="page-title"),
+        html.P("Track a single team's win percentage across seasons to spot rebuilds, "
            "sustained success, or decline."),
     html.Div([
         html.Div([
@@ -234,7 +235,7 @@ def update_team_trend(division_selections, selected_metric):
                 legendgroup=str(team_id),
                 mode="lines+markers",
                 line=dict(color=color),
-                hovertemplate=f"{team_label}<br>Season %{{x}}<br>Win %%: %{{y:.1%}}<extra></extra>",
+                hovertemplate=f"{team_label}<br>Season %{{x}}<br>Win %: %{{y:.1%}}<extra></extra>",
             ),
             row=1, col=1,
         )
@@ -270,7 +271,7 @@ def update_team_trend(division_selections, selected_metric):
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         hovermode="x unified",
         font=dict(family="Inter, Arial, sans-serif", color="#001238", size=16),
-        title_font=dict(family="Oswald, Arial, sans-serif", size=22, color="#001238"),
+        title_font=dict(family="Oswald, Arial, sans-serif", size=26, color="#001238"),
     )
 
     return fig, warning_msg
